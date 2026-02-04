@@ -3,6 +3,8 @@ package org.example.examenjpamongodbexample.dao.utilities;
 public class Queries {
     public static final String GET_ALL_BATTLES = "from JpaBattleEntity";
     public static final String GET_ALL_FACTIONS = "from JpaFactionEntity";
+    public static final String GET_ALL_WEAPONS = "from JpaWeaponEntity";
+
     public static final String SelectGetByNewspaperAndName = "select a.id_article, a.name_article, a.id_newspaper, a.id_type, t.id_type, t.name, t.description " +
             "from Article a join Type t on a.id_type = t.id_type where a.id_newspaper = ? and a.name_article = ?";
     public static final String SelectGet = "select a.id_article, a.name_article, a.id_newspaper, a.id_type, t.id_type, t.name, t.description " +
@@ -10,6 +12,8 @@ public class Queries {
     public static final String SelectSave = "insert into Article (name_article, id_newspaper, id_type) values (?, ?, ?)";
     public static final String DeleteArticle = "delete from Article where id_article = ?";
     public static final String DELETE_WEAPON = "delete from JpaWeaponEntity where id = :id";
+    public static final String UPDATE_WEAPON_PRICE = "update JpaWeaponEntity set wPrice = :wprice where id = :id";
+    public static final String GET_SPY = "SELECT s FROM JpaSpyEntity s WHERE s.sName = :name";
 
     public static final String Update = "update Article set name_article = ?, id_newspaper = ?, id_type = ? where id_article = ?";
     public static final String SelectFromCrede = "select * from Credentials";

@@ -14,7 +14,11 @@ import java.util.List;
 @Table(name = "weapons")
 @NamedQueries({
         @NamedQuery(name = "DELETE_WEAPON",
-                query = Queries.DELETE_WEAPON)
+                query = Queries.DELETE_WEAPON),
+        @NamedQuery(name = "UPDATE_WEAPON_PRICE",
+                query = Queries.UPDATE_WEAPON_PRICE),
+        @NamedQuery(name = "GET_ALL_WEAPONS",
+                query = Queries.GET_ALL_WEAPONS)
 })
 public class JpaWeaponEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)

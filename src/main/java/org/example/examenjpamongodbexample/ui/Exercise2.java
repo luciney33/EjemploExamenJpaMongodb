@@ -4,6 +4,7 @@ import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import org.example.examenjpamongodbexample.domain.model.BattleDTO;
 import org.example.examenjpamongodbexample.domain.model.FactionDTO;
+import org.example.examenjpamongodbexample.domain.model.SpyDTO;
 import org.example.examenjpamongodbexample.domain.service.BattleService;
 
 import java.time.LocalDate;
@@ -29,6 +30,15 @@ public class Exercise2 {
             System.out.println("Introduce la fecha de la batalla (YYYY-MM-DD):");
             String dateStr = sc.nextLine();
             LocalDate battleDate = LocalDate.parse(dateStr);
+
+            System.out.println("\n--- Espía (Spy) ---");
+            System.out.println("Introduce el nombre del espía:");
+            String spyName = sc.nextLine();
+
+            System.out.println("Introduce la raza del espía:");
+            String spyRace = sc.nextLine();
+
+            SpyDTO spy = new SpyDTO(0, spyName, spyRace, null);
 
             System.out.println("\n--- Primera Facción ---");
             System.out.println("Introduce el nombre de la facción:");
@@ -95,13 +105,13 @@ public class Exercise2 {
                 factionTwo,
                 battlePlace,
                 battleDate,
-                null
+                spy
             );
 
             battleService.save(battleDTO);
 
-            System.out.println("\nBatalla guardada correctamente");
-            System.out.println("Las facciones se han creado o actualizado automáticamente");
+            System.out.println("\n✓ Batalla guardada correctamente");
+            System.out.println("Las facciones y el espía se han creado o actualizado automáticamente");
 
         } catch (Exception e) {
             System.err.println("Error al guardar la batalla: " + e.getMessage());

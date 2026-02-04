@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.examenjpamongodbexample.dao.utilities.Queries;
 
 import java.util.List;
 
@@ -12,6 +13,10 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "spies")
+@NamedQueries({
+        @NamedQuery(name = "GET_SPY",
+                query = Queries.GET_SPY)
+})
 public class JpaSpyEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -23,6 +28,4 @@ public class JpaSpyEntity {
     @Column(name = "srace")
     private  String sRace;
 
-    @OneToMany(mappedBy = "spy", fetch = FetchType.LAZY)
-    private List<JpaBattleEntity> battles;
 }

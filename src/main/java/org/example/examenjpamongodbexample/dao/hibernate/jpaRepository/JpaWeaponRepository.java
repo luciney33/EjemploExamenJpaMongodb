@@ -6,8 +6,12 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceException;
 import org.example.examenjpamongodbexample.dao.hibernate.WeaponRepository;
+import org.example.examenjpamongodbexample.dao.hibernate.model.JpaFactionEntity;
 import org.example.examenjpamongodbexample.dao.hibernate.model.JpaWeaponEntity;
 import org.example.examenjpamongodbexample.dao.utilities.JPAUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class JpaWeaponRepository implements WeaponRepository {
     private final JPAUtil jpaUtil;
@@ -17,6 +21,21 @@ public class JpaWeaponRepository implements WeaponRepository {
     public JpaWeaponRepository(JPAUtil jpaUtil) {
         this.jpaUtil = jpaUtil;
     }
+
+    @Override
+    public List<JpaWeaponEntity> getAll() {
+        List<JpaWeaponEntity> weaponsList = new ArrayList<>();
+        em = jpaUtil.getEntityManager();
+        try {
+            weaponsList = em.createNamedQuery("GET_ALL_WEAPONS", JpaWeaponEntity.class).getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (em != null)  em.close();
+        }
+        return weaponsList;
+    }
+
     @Override
     public JpaWeaponEntity findByName(String name) {
         em = jpaUtil.getEntityManager();
@@ -80,6 +99,20 @@ public class JpaWeaponRepository implements WeaponRepository {
 
     @Override
     public void update(JpaWeaponEntity weapon) {
-
+        em = jpaUtil.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        try{
+            em.createNamedQuery("UPDATE_WEAPON_PRICE")
+                            .setParameter("wprice", weapon.getWPrice())
+                            .setParameter("id", weapon.getId())
+                            .executeUpdate();
+            tx.commit();
+        }catch (Exception e){
+            if (tx.isActive()) tx.rollback();
+            e.printStackTrace();
+        }finally {
+            if (em != null) em.close();
+        }
     }
 }
