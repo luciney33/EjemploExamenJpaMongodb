@@ -5,11 +5,12 @@ import jakarta.enterprise.inject.se.SeContainerInitializer;
 import org.example.examenjpamongodbexample.domain.error.DatabaseError;
 import org.example.examenjpamongodbexample.domain.model.WeaponDTO;
 import org.example.examenjpamongodbexample.domain.service.WeaponService;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Exercise1 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in).useLocale(Locale.US);
         SeContainerInitializer initializer = SeContainerInitializer.newInstance();
         try (SeContainer container = initializer.initialize()) {
             WeaponService weaponService = container.select(WeaponService.class).get();

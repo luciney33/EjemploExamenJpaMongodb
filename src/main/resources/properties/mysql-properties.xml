@@ -4,5 +4,5 @@
 <!--    <entry key="urlDBMongo">mongodb://informatica.iesquevedo.es:2323/</entry>-->
 <!--    <entry key="databaseName">ExampleExamMongoJpa</entry>-->
     <entry key="urlDBMongo">mongodb://root:root@localhost:27017/</entry>
-    <entry key="databaseName">ExampleExam</entry>
+    <entry key="databaseName">ExampleExamMongoJpa</entry>
 </properties>

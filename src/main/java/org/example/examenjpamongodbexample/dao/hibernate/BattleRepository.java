@@ -1,8 +1,8 @@
 package org.example.examenjpamongodbexample.dao.hibernate;
 
-import org.example.examenjpamongodbexample.dao.hibernate.model.JpaWeaponEntity;
+import org.example.examenjpamongodbexample.dao.hibernate.model.JpaBattleEntity;
 
 public interface BattleRepository {
-    int save(JpaWeaponEntity weapon);
+    int save(JpaBattleEntity battle);
 
 }

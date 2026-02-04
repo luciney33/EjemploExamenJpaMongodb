@@ -14,8 +14,19 @@ public class MapFactiontoDto {
         }
         return factionDTOS;
     }
+
     public FactionDTO toDTO(JpaFactionEntity entity) {
         return new FactionDTO(entity.getFName(), entity.getContact(),
                 entity.getPlanet(), entity.getNumControlledSystems(), entity.getDateLastPurchase(), null,null,null);
+    }
+
+    public JpaFactionEntity dtoToEntity(FactionDTO dto) {
+        JpaFactionEntity entity = new JpaFactionEntity();
+        entity.setFName(dto.getFName());
+        entity.setContact(dto.getContact());
+        entity.setPlanet(dto.getPlanet());
+        entity.setNumControlledSystems(dto.getNumControlledSystems());
+        entity.setDateLastPurchase(dto.getDateLastPurchase());
+        return entity;
     }
 }

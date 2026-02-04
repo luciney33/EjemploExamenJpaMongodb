@@ -62,9 +62,9 @@ public class JpaWeaponRepository implements WeaponRepository {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
-                em.createNamedQuery("DELETE_WEAPON", JpaWeaponEntity.class)
-                        .setParameter(1, weapon.getId())
-                        .executeUpdate();
+            em.createNamedQuery("DELETE_WEAPON")
+                    .setParameter("id", weapon.getId())
+                    .executeUpdate();
 
             em.remove(em.merge(weapon));
             tx.commit();
