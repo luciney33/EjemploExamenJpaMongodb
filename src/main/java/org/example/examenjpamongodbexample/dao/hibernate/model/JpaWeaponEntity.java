@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
+import org.example.examenjpamongodbexample.dao.utilities.Queries;
 import java.util.List;
 
 @Data
@@ -13,6 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "weapons")
+@NamedQueries({
+        @NamedQuery(name = "DELETE_WEAPON",
+                query = Queries.DELETE_WEAPON)
+})
 public class JpaWeaponEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

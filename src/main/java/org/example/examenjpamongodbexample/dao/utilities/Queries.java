@@ -9,7 +9,7 @@ public class Queries {
             "from Article a join Type t on a.id_type = t.id_type where a.id_article = ?";
     public static final String SelectSave = "insert into Article (name_article, id_newspaper, id_type) values (?, ?, ?)";
     public static final String DeleteArticle = "delete from Article where id_article = ?";
-    public static final String DELETE_READARTICLE_BY_ARTICLEID = "delete from JpaReadArticleEntity where id_article = :id_article";
+    public static final String DELETE_WEAPON = "delete from JpaWeaponEntity where id = :id";
 
     public static final String Update = "update Article set name_article = ?, id_newspaper = ?, id_type = ? where id_article = ?";
     public static final String SelectFromCrede = "select * from Credentials";
