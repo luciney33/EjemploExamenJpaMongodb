@@ -15,6 +15,15 @@ public class MapWeapontoDto {
         return weaponDTOS;
     }
     public WeaponDTO toDTO(JpaWeaponEntity entity) {
-        return new WeaponDTO(entity.getId(), entity.getWName(), entity.getWPrice(),null);
+        return new WeaponDTO(entity.getId(), entity.getWName(), entity.getWPrice());
+    }
+
+    public JpaWeaponEntity dtoToEntity(WeaponDTO dto) {
+        return new JpaWeaponEntity(
+                dto.getId(),
+                dto.getWName(),
+                dto.getWPrice(),
+                null
+        );
     }
 }

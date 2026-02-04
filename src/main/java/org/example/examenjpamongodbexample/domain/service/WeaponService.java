@@ -16,11 +16,13 @@ public class WeaponService {
         this.mapper = mapper;
     }
 
-//    public int save(WeaponDTO weaponDTO){
-//        return weaponRepo.save(mapper.toEntity(weaponDTO));
-//    }
-//
-//    public void delete(WeaponDTO weaponDTO){
-//        weaponRepo.delete(mapper.toEntity(weaponDTO));
-//    }
+    public void save(WeaponDTO weaponDTO){
+        int savedWeaponId = weaponRepo.save(mapper.dtoToEntity(weaponDTO));
+        weaponDTO.setId(savedWeaponId);
+        delete(weaponDTO);
+    }
+
+    public void delete(WeaponDTO weaponDTO){
+        weaponRepo.delete(mapper.dtoToEntity(weaponDTO));
+    }
 }

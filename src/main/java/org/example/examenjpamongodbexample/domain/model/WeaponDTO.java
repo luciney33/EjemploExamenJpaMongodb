@@ -13,7 +13,4 @@ public class WeaponDTO {
     private int id;
     private String wName;
     private Double wPrice;
-    private List<WeaponFactionDTO> weaponsAndFactions;
-
-
 }
