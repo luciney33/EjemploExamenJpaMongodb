@@ -1,6 +1,7 @@
 package org.example.examenjpamongodbexample.domain.error;
 
-import org.example.common.Constantes;
+
+import org.example.examenjpamongodbexample.common.Constantes;
 
 public class FOREING_KEY_ERROR extends DatabaseError {
     public FOREING_KEY_ERROR() {

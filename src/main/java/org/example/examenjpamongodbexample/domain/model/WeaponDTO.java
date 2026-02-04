@@ -3,17 +3,17 @@ package org.example.examenjpamongodbexample.domain.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ArticleDTO {
+
+public class WeaponDTO {
     private int id;
-    private String name;
-    private String typeDTO;
-    private ObjectId npaperId;
-    private double avgRating;
+    private String wName;
+    private Double wPrice;
+    private List<WeaponFactionDTO> weaponsAndFactions;
 
 
 }

@@ -3,13 +3,16 @@ package org.example.examenjpamongodbexample.domain.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class NewspaperDTO {
-    private ObjectId id;
-    private String name;
+public class WeaponFactionDTO {
+    private int id;
+    private FactionDTO faction;
+    private WeaponDTO weapon;
+    private List<SaleDTO> sales;
 
 }
